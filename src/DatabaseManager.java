@@ -7,12 +7,15 @@ public class DatabaseManager {
 
     public DatabaseManager(String dbURL, String user, String password) throws SQLException {
         try {
-            connection = DriverManager.getConnection(dbURL, user, password);
+            //class.forName("com.mysql.jdbc.Driver");
+
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/Agyenkwa", "root", "");
         } catch (SQLException e) {
             throw new SQLException("Failed to connect to the database", e);
         }
     }
 
+    
     // Methods for Drugs
     public void addDrugToDatabase(Drug drug) {
         String query = "INSERT INTO drugs (code, name, description, price) VALUES (?, ?, ?, ?)";
@@ -37,6 +40,8 @@ public class DatabaseManager {
         }
     }
 
+
+    //Methods for suppliers
     public void addSupplierToDatabase(Supplier supplier) {
         String query = "INSERT INTO suppliers (id, name, contact) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -59,6 +64,8 @@ public class DatabaseManager {
         }
     }
 
+
+    //Methods for Purchases
     public void addPurchaseToDatabase(Purchase purchase) {
         String query = "INSERT INTO purchases (id, buyer, quantity, date) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {

@@ -23,7 +23,6 @@ public class Drug {
     }
 
     // Getters and setters
-
     public String getDrugCode() {
         return drugCode;
     }

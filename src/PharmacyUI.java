@@ -21,7 +21,7 @@ public class PharmacyUI extends Application {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, 800, 600);
 
-        // Create UI components for adding drugs
+        // Creating UI components for adding drugs
         TextField drugCodeField = new TextField();
         TextField drugNameField = new TextField();
         TextField drugDescriptionField = new TextField();
@@ -37,7 +37,7 @@ public class PharmacyUI extends Application {
             system.addDrug(drug);
         });
 
-        // Create UI components for removing drugs
+        // Creating UI components for removing drugs
         TextField removeDrugCodeField = new TextField();
         Button removeButton = new Button("Remove Drug");
         removeButton.setOnAction(e -> {
@@ -45,7 +45,7 @@ public class PharmacyUI extends Application {
             system.removeDrug(code);
         });
 
-        // Create UI components for searching drugs
+        // Creating UI components for searching drugs
         TextField searchDrugCodeField = new TextField();
         TextArea searchResultArea = new TextArea();
         searchResultArea.setEditable(false);
